@@ -1,9 +1,5 @@
 <template>
   <div class="box">
-    <!-- 导航组件 -->
-    <div>
-      <daohang></daohang>
-    </div>
     <!-- 轮播图 -->
     <div class="lb">
       <div>
@@ -85,19 +81,19 @@
     </div>
     <!-- 列表组件 -->
     <div class="tx">
-      <liebiao :res="res"></liebiao>
+      <liebiao :res="res" @dianji="dianji"></liebiao>
     </div>
   </div>
 </template>
 
 <script>
-import daohang from "../components/daohang";
 import liebiao from "../components/liebiao.vue";
 import axios from "axios";
 export default {
   data() {
     return {
       res: [],
+      word:"",
     };
   },
   methods: {
@@ -108,8 +104,16 @@ export default {
           page: 1,
         },
       }).then((res) => {
-        console.log(res.data);
         this.res = res.data;
+      });
+    },
+
+    dianji(goodId) {
+      this.$router.push({
+        path: "/page",
+        query: {
+          goodId,
+        },
       });
     },
   },
@@ -117,7 +121,6 @@ export default {
     this.get();
   },
   components: {
-    daohang,
     liebiao,
   },
 };

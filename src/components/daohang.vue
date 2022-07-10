@@ -8,8 +8,9 @@
         />
       </div>
       <div class="sr">
-        <input type="text" placeholder="请输入要搜索的商品" />
-        <span class="bj"></span>
+        <input type="text" placeholder="请输入要搜索的商品" v-model="word" />
+
+        <span class="bj" @click="shousuo"></span>
         <ul class="rc">
           <li v-for="item in list" :key="item">{{ item }}</li>
         </ul>
@@ -17,7 +18,7 @@
     </div>
     <ul class="dh">
       <li><router-link to="/index">首页</router-link></li>
-      <li><router-link to="">每日上新</router-link></li>
+      <li><router-link to="/product">每日上新</router-link></li>
       <li>|</li>
       <li><router-link to="">了解必要</router-link></li>
       <li><router-link to="">购物车</router-link></li>
@@ -28,10 +29,10 @@
 </template>
 
 <script>
-import axios from "axios";
 export default {
   data() {
     return {
+      word: "",
       list: [
         "防嗮",
         "枕头",
@@ -46,7 +47,16 @@ export default {
       ],
     };
   },
-  methods: {},
+  methods: {
+    shousuo() {
+      this.$router.push({
+        path: "/search",
+        query: {
+          word: this.word,
+        },
+      });
+    },
+  },
 };
 </script>
 
@@ -105,6 +115,7 @@ input {
   height: 36px;
   padding-left: 10px;
   border: 1px solid #ccc;
+  outline: none;
 }
 .rc {
   display: flex;

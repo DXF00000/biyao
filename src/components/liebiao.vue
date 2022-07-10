@@ -1,6 +1,6 @@
 <template>
   <div class="box">
-    <div v-for="(item, i) in res" :key="i">
+    <div v-for="(item, i) in res" :key="i" @click="tiaozhuan(item.Id)">
       <img :src="item.imageUrl" alt="" />
       <div class="wb">
         <p class="p1">
@@ -19,9 +19,13 @@
 <script>
 export default {
   props: ["res"],
+  emits: ["dianji"],
   methods: {
     fun(i) {
       return "￥" + i * 1;
+    },
+    tiaozhuan(Id) {
+      this.$emit("dianji", Id);
     },
   },
 };

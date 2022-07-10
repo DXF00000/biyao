@@ -7,9 +7,9 @@ module.exports = defineConfig({
       "/api": {
         target: "http://192.168.205.54:9527",
         changeOrigin: true,
-        // pathRewrite: {
-        //   "^/x": ""
-        // }
+        pathRewrite: {
+          "^/api": ""
+        }
       },
       "/classify": {
         target: "http://www.biyao.com",

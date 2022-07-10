@@ -1,5 +1,9 @@
 <template>
-  <div>
+  <div class="box">
+    <!-- 导航组件 -->
+    <div>
+      <daohang></daohang>
+    </div>
     <router-view></router-view>
 
     <!-- 底部 -->
@@ -50,6 +54,14 @@
     </div>
   </div>
 </template>
+<script>
+import daohang from "./components/daohang";
+export default {
+  components: {
+    daohang,
+  },
+};
+</script>
 <style lang="scss" scoped>
 .footer {
   width: 100%;
@@ -114,5 +126,9 @@ li {
   width: 120px;
   height: 120px;
   margin-left: 50px;
+}
+.box {
+  width: 1080px;
+  margin: 0 auto;
 }
 </style>

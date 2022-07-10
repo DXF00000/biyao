@@ -1,5 +1,9 @@
 import { createRouter, createWebHashHistory } from 'vue-router'
-import Index from '../views/index.vue'
+
+const Index = () => import("../views/index.vue")
+const Xiangqin = () => import('../views/xiangqing.vue')
+const Product = () => import('../views/xingpin.vue')
+const Search = () => import('../views/shousuo.vue')
 
 const routes = [
   {
@@ -9,6 +13,15 @@ const routes = [
   {
     path: "/index",
     component: Index
+  }, {
+    path: "/page",
+    component: Xiangqin
+  }, {
+    path: "/product",
+    component: Product
+  }, {
+    path: "/search",
+    component: Search
   }
 ]
 
