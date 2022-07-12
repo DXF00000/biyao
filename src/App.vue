@@ -121,7 +121,6 @@ li {
 }
 
 .footer-detail > li div {
-  display: inline-block;
   float: left;
   width: 120px;
   height: 120px;

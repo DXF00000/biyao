@@ -7,17 +7,18 @@ module.exports = defineConfig({
       "/api": {
         target: "http://192.168.205.54:9527",
         changeOrigin: true,
+        // 如果在报错误,说明请求数据未拦截到
         pathRewrite: {
-          "^/api": ""
+          // "^/api": ""
         }
       },
-      "/classify": {
-        target: "http://www.biyao.com",
-        changeOrigin: true,
-        pathRewrite: {
-          "^/classify": ""
-        }
-      }
+      // "/classify": {
+      //   target: "http://www.biyao.com",
+      //   changeOrigin: true,
+      //   pathRewrite: {
+      //     "^/classify": ""
+      //   }
+      // }
     }
   }
 })

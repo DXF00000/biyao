@@ -8,11 +8,18 @@
         />
       </div>
       <div class="sr">
-        <input type="text" placeholder="请输入要搜索的商品" v-model="word" />
+        <input
+          type="text"
+          placeholder="请输入要搜索的商品"
+          v-model="word"
+          @keydown.enter="shousuo"
+        />
 
         <span class="bj" @click="shousuo"></span>
         <ul class="rc">
-          <li v-for="item in list" :key="item">{{ item }}</li>
+          <li v-for="item in list" :key="item" @click="tiaozuan(item)">
+            {{ item }}
+          </li>
         </ul>
       </div>
     </div>
@@ -34,15 +41,15 @@ export default {
     return {
       word: "",
       list: [
-        "防嗮",
+        "喷雾",
         "枕头",
         "乳液",
         "电动牙刷",
         "耳机",
-        "洗面奶",
-        "口红",
-        "短裤男",
-        "男生内裤",
+        "洗发水",
+        "粉扑",
+        "丝袜",
+        "牛仔裤",
         "面膜",
       ],
     };
@@ -53,6 +60,14 @@ export default {
         path: "/search",
         query: {
           word: this.word,
+        },
+      });
+    },
+    tiaozuan(item) {
+      this.$router.push({
+        path: "/search",
+        query: {
+          word: item,
         },
       });
     },
@@ -131,5 +146,6 @@ input {
   margin-right: 10px;
   line-height: 35px;
   color: #666;
+  cursor: pointer;
 }
 </style>

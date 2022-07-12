@@ -9,46 +9,46 @@
         />
         <div class="bt">
           <p>
-            <router-link to="">咖啡</router-link>
+            <router-link to="/classify?x=咖啡">咖啡</router-link>
             <span>/</span>
-            <router-link to="">饮食</router-link>
+            <router-link to="/classify?x=饮食">饮食</router-link>
             <span>/</span>
-            <router-link to="">正餐</router-link>
+            <router-link to="/classify?x=正餐">正餐</router-link>
           </p>
           <p>
-            <router-link to="">男装</router-link>
+            <router-link to="/classify?x=男装">男装</router-link>
             <span>/</span>
-            <router-link to="">女装</router-link>
+            <router-link to="/classify?x=女装">女装</router-link>
             <span>/</span>
-            <router-link to="">鞋靴</router-link>
+            <router-link to="/classify?x=鞋靴">鞋靴</router-link>
           </p>
           <p>
-            <router-link to="">眼睛</router-link>
+            <router-link to="/classify?x=眼睛">眼睛</router-link>
             <span>/</span>
-            <router-link to="">内衣配饰</router-link>
+            <router-link to="/classify?x=内衣配饰">内衣配饰</router-link>
             <span>/</span>
-            <router-link to="">运动</router-link>
+            <router-link to="/classify?x=运动">运动</router-link>
           </p>
           <p>
-            <router-link to="">美妆</router-link>
+            <router-link to="/classify?x=美妆">美妆</router-link>
             <span>/</span>
-            <router-link to="">个护</router-link>
+            <router-link to="/classify?x=个护">个护</router-link>
             <span>/</span>
-            <router-link to="">母婴</router-link>
+            <router-link to="/classify?x=母婴">母婴</router-link>
           </p>
           <p>
-            <router-link to="">生鲜直供</router-link>
+            <router-link to="/classify?x=生鲜直供">生鲜直供</router-link>
             <span>/</span>
-            <router-link to="">餐厨</router-link>
+            <router-link to="/classify?x=餐厨">餐厨</router-link>
             <span>/</span>
-            <router-link to="">电器</router-link>
+            <router-link to="/classify?x=电器">电器</router-link>
           </p>
           <p>
-            <router-link to="">箱包</router-link>
+            <router-link to="/classify?x=箱包">箱包</router-link>
             <span>/</span>
-            <router-link to="">数码办公</router-link>
+            <router-link to="/classify?x=数码办公">数码办公</router-link>
             <span>/</span>
-            <router-link to="">汽配</router-link>
+            <router-link to="/classify?x=汽配">汽配</router-link>
           </p>
         </div>
 
@@ -93,7 +93,7 @@ export default {
   data() {
     return {
       res: [],
-      word:"",
+      word: "",
     };
   },
   methods: {

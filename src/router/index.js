@@ -2,8 +2,10 @@ import { createRouter, createWebHashHistory } from 'vue-router'
 
 const Index = () => import("../views/index.vue")
 const Xiangqin = () => import('../views/xiangqing.vue')
-const Product = () => import('../views/xingpin.vue')
+const Product = () => import('../views/meiri.vue')
 const Search = () => import('../views/shousuo.vue')
+const Classify = () => import('../views/fenlei.vue')
+const Storeto = () => import('../views/jindiankankan.vue')
 
 const routes = [
   {
@@ -22,6 +24,14 @@ const routes = [
   }, {
     path: "/search",
     component: Search
+  },
+  {
+    path: "/classify",
+    component: Classify
+  },
+  {
+    path: "/storeto",
+    component: Storeto
   }
 ]
 
