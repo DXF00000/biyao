@@ -6,6 +6,8 @@ const Product = () => import('../views/meiri.vue')
 const Search = () => import('../views/shousuo.vue')
 const Classify = () => import('../views/fenlei.vue')
 const Storeto = () => import('../views/jindiankankan.vue')
+const Login = () => import('../views/denglu.vue')
+const Shopping = () => import('../views/gouwuche.vue')
 
 const routes = [
   {
@@ -32,6 +34,16 @@ const routes = [
   {
     path: "/storeto",
     component: Storeto
+  }, {
+    path: "/login",
+    component: Login
+  }, {
+    path: "/shopping",
+    component: Shopping,
+    meta: {
+      needLogin: true
+    }
+
   }
 ]
 

@@ -9,7 +9,7 @@
       <div></div>
       <div class="editor-picture left">
         <div class="p1">
-          <img :src="img[0]" alt="" />
+          <img :src="img[num]" alt="" />
 
           <div class="p2">
             <span>7天无忧退货</span>
@@ -19,7 +19,7 @@
           </div>
         </div>
         <ul class="picture">
-          <li v-for="item in img" :key="item">
+          <li v-for="(item, i) in img" :key="i" @click="qiehuan(i)">
             <img :src="item" alt="" />
           </li>
         </ul>
@@ -51,7 +51,7 @@
           </li>
           <li class="specs-dimension">
             <span>规格：</span>
-            <span v-for="item in gui" :key="item"
+            <span v-for="item in gui" :key="item" class="ss1"
               >{{ item }}
               <em></em>
             </span>
@@ -59,7 +59,7 @@
         </ul>
         <div>
           <div class="panel-bottom">微信扫码购买</div>
-          <div class="panel-bottom">加入购物车</div>
+          <div class="panel-bottom" @click="jiaru">加入购物车</div>
         </div>
       </div>
     </div>
@@ -135,6 +135,8 @@ export default {
       jiesao: [],
       Image: [],
       Images: [],
+      num: 0,
+      id: "",
     };
   },
 
@@ -145,6 +147,17 @@ export default {
   },
 
   methods: {
+    jiaru() {
+      axios({
+        url: "/api/add",
+        params: {
+          goodId: this.id,
+          token: sessionStorage.token,
+        },
+      }).then((res) => {
+        console.log(res);
+      });
+    },
     zhuanfa() {
       this.$router.push({
         path: "/storeto",
@@ -153,6 +166,9 @@ export default {
           log: this.res.addressLogo,
         },
       });
+    },
+    qiehuan(i) {
+      this.num = i;
     },
     tiaozhuan(goodId) {
       this.$router.push({
@@ -208,7 +224,7 @@ export default {
     }).then((res) => {
       next((vm) => {
         vm.res = res.data[0];
-        console.log(res.data[0]);
+        vm.id = res.data[0].Id;
       });
     });
   },
@@ -401,8 +417,10 @@ a {
 .specs-dimension {
   display: flex;
   align-items: center;
+  align-content: center;
+  flex-wrap: wrap;
 }
-.specs-dimension span:nth-child(2) {
+.specs-dimension .ss1 {
   height: 33px;
   line-height: 33px;
   padding: 0 23px;

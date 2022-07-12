@@ -44,7 +44,6 @@ export default {
     this.get();
   },
   methods: {
-  
     get() {
       axios({
         url: "/api/getTypeTwo",
@@ -107,10 +106,10 @@ a {
   margin: 0 8px 0 5px;
 }
 .cateBread {
-  width: 1060px;
+  width: 1080px;
   height: 50px;
   margin: 20px auto 30px;
-  padding-left: 20px;
+
   line-height: 50px;
   background: #fff;
   display: flex;
@@ -118,12 +117,18 @@ a {
 }
 .cateBread span,
 .cateBread li {
+  width: 110px;
   display: inline-block;
   font-size: 16px;
   color: gray;
+  text-align: center;
 }
 .cateBread li {
-  margin-right: 30px;
+  max-width: 120px;
   cursor: pointer;
+}
+ul {
+  margin: 0;
+  padding: 0;
 }
 </style>

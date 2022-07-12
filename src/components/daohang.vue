@@ -28,9 +28,12 @@
       <li><router-link to="/product">每日上新</router-link></li>
       <li>|</li>
       <li><router-link to="">了解必要</router-link></li>
-      <li><router-link to="">购物车</router-link></li>
+      <li><router-link to="/shopping">购物车</router-link></li>
       <li>|</li>
-      <li><router-link to="">登录页</router-link></li>
+      <li>
+        <router-link to="Login">{{ $store.state.name || name }}</router-link>
+        <!-- <router-link to="Login" v-show="!flag">{{ name }}</router-link> -->
+      </li>
     </ul>
   </div>
 </template>
@@ -40,6 +43,7 @@ export default {
   data() {
     return {
       word: "",
+      name: "登录",
       list: [
         "喷雾",
         "枕头",
@@ -54,6 +58,7 @@ export default {
       ],
     };
   },
+
   methods: {
     shousuo() {
       this.$router.push({

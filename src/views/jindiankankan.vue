@@ -6,8 +6,8 @@
       <span>{{ txt }}</span>
     </div>
     <div class="info-normal">
-      <img :src="log" alt="" />
-      <div>
+      <img :src="log" alt="" class="m1" />
+      <div class="m2">
         <h1>{{ txt }}</h1>
         <p>证书信息</p>
       </div>
@@ -41,6 +41,16 @@ export default {
       log: "",
     };
   },
+  methods: {
+    tiaozhuan(Id) {
+      this.$router.push({
+        path: "/page",
+        query: {
+          goodId: Id,
+        },
+      });
+    },
+  },
   beforeRouteEnter(to, form, next) {
     axios({
       url: "/api/supplierList",
@@ -61,18 +71,25 @@ export default {
 
 <style scoped lang='scss'>
 .info-normal {
+  width: 330px;
   display: flex;
+  justify-content: space-between;
+  padding-left: 30px;
+  margin-bottom: 40px;
 }
-.info-normal > img {
+.info-normal .m1 {
   width: 100px;
+  height: 100px;
 }
-.info-normal p {
+.info-normal .m2 {
+  width: 200px;
   font-size: 16px;
 }
-h1 {
+.m2 h1 {
+  width: 300px;
   margin-bottom: 8px;
   font-size: 24px;
-  font-weight: 400px;
+  font-weight: 400;
 }
 .box {
   width: 1080px;
