@@ -148,15 +148,19 @@ export default {
 
   methods: {
     jiaru() {
-      axios({
-        url: "/api/add",
-        params: {
-          goodId: this.id,
-          token: sessionStorage.token,
-        },
-      }).then((res) => {
-        console.log(res);
-      });
+      if (sessionStorage.token) {
+        axios({
+          url: "/api/add",
+          params: {
+            goodId: this.id,
+            token: sessionStorage.token,
+          },
+        }).then((res) => {
+          console.log(res);
+        });
+      } else {
+        alert("请先登录");
+      }
     },
     zhuanfa() {
       this.$router.push({

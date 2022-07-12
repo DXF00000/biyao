@@ -2,8 +2,8 @@ import { createStore } from 'vuex'
 
 export default createStore({
   state: {
-    token: "",
-    name: ""
+    token: sessionStorage.token || "",
+    name: sessionStorage.name ? "欢迎" + sessionStorage.name :  "",
   },
   getters: {
   },

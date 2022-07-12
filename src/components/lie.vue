@@ -80,13 +80,14 @@ export default {
   padding-left: 2px;
 }
 .p1 span:nth-child(2) {
-  font-size: 18px;
+  font-size: 15px;
   color: #f7a701;
 }
 .p1 span:nth-child(3) {
   color: #ffffff;
   background: #ab7fd1;
   border-color: #ab7fd1;
+  margin: 0 5px;
 }
 .p1 span:nth-child(4) {
   color: #fb4c81;
@@ -110,5 +111,14 @@ p {
   margin-bottom: 0;
   font-weight: 400;
   padding: 0;
+}
+.p1 span {
+  font-size: 10px;
+  border-radius: 2px;
+  color: #fff;
+  height: 16px;
+  line-height: 14px;
+  margin-left: -3px;
+  border: 1px solid #fff;
 }
 </style>
