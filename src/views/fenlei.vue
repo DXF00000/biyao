@@ -29,6 +29,7 @@
 <script>
 import axios from "axios";
 import lieB from "../components/lie.vue";
+
 export default {
   data() {
     return {

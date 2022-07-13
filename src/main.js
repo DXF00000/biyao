@@ -2,6 +2,8 @@ import { createApp } from 'vue'
 import App from './App.vue'
 import router from './router'
 import store from './store'
+import ElementPlus from 'element-plus'
+import 'element-plus/dist/index.css'
 router.beforeEach((to, from, next) => {
 
     // // 读取一个数据
@@ -24,4 +26,4 @@ router.beforeEach((to, from, next) => {
         next();
     }
 });
-createApp(App).use(store).use(router).mount('#app')
+createApp(App).use(store).use(router).use(ElementPlus).mount('#app')

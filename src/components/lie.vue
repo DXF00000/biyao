@@ -1,7 +1,7 @@
 <template>
   <div class="box">
     <div v-for="(item, i) in res" :key="i" @click="tiaozhuan(item.Id)">
-      <img :src="item.imageUrl" alt="" />
+      <el-image :src="item.imageUrl" lazy />
       <div class="wb">
         <p class="p2">{{ item.supplier }}</p>
         <h6 class="p3">{{ item.title }}</h6>

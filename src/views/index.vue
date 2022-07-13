@@ -94,20 +94,45 @@ export default {
     return {
       res: [],
       word: "",
+      num: 1,
+      flag: true,
     };
   },
   methods: {
+    fun() {
+      //变量scrollTop是滚动条滚动时，距离顶部的距离
+      var wh = window.innerHeight;
+
+      // 返会整个html的高度，随着网页内容的多少变化
+      var bh = document.documentElement.scrollHeight;
+
+      // 返回html页面滚动上去的高度值
+      var st = document.documentElement.scrollTop;
+
+      // window 高度  + html滚动高度==整个html页面的高度
+      if (st + wh >= bh - 200) {
+        if (this.flag) {
+          this.flag = false;
+          this.num++;
+          this.get();
+          setTimeout(() => {
+            this.flag = true;
+            console.log(this.flag);
+          }, 2000);
+        }
+      }
+    },
+
     get() {
       axios({
         url: "/api/hotlist",
         params: {
-          page: 1,
+          page: this.num,
         },
       }).then((res) => {
-        this.res = res.data;
+        this.res = [...this.res, ...res.data];
       });
     },
-
     dianji(goodId) {
       this.$router.push({
         path: "/page",
@@ -119,6 +144,9 @@ export default {
   },
   created() {
     this.get();
+  },
+  mounted() {
+    window.addEventListener("scroll", this.fun);
   },
   components: {
     liebiao,

@@ -66,7 +66,7 @@
     <!-- 详情 -->
     <div class="section-view">
       <div class="view-retract">
-        <p class="a1">
+        <p class="a1" @click="zhuanfa">
           <span></span> <i>{{ res.addressName }}</i>
         </p>
         <p class="a2">商品信息</p>
@@ -92,7 +92,8 @@
               @click="tiaozhuan(item.Id)"
               class="supplier-a"
             >
-              <img :src="item.imageUrl" alt="" />
+              <el-image :src="item.imageUrl" lazy />
+
               <div class="wb">
                 <h6 class="title">{{ item.title }}</h6>
                 <p class="ps1">
@@ -114,7 +115,7 @@
           </div>
           <div class="txq_details">
             <p v-for="item in Image" :key="item">
-              <img :src="item" alt="" />
+              <el-image :src="item" lazy />
             </p>
           </div>
         </div>

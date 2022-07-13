@@ -1,7 +1,8 @@
 <template>
   <div class="box">
     <div v-for="(item, i) in res" :key="i" @click="tiaozhuan(item.Id)">
-      <img :src="item.imageUrl" alt="" />
+      <el-image :src="item.imageUrl" lazy />
+
       <div class="wb">
         <p class="p1">
           <span>{{ fun(item.priceStr) }}</span>
@@ -46,6 +47,7 @@ export default {
 }
 .box img {
   width: 530px;
+  height: 272.06px;
 }
 .wb {
   padding: 0 0 0 20px;
